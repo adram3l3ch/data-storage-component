@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: url(./images/bg-desktop.png) no-repeat;
+    background-position: 0 bottom;
+    background-size: contain;
+    background-color: hsl(229, 57%, 11%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+}
+
+.container {
+    display: flex;
+    gap: 2rem;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.left__icon {
+    width: 3rem;
+    aspect-ratio: 1;
+    background-color: hsl(229, 57%, 11%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right,
+.left {
+    background-color: hsl(228, 56%, 26%);
+    align-self: flex-end;
+    border-radius: 10px;
+    padding: 2rem;
+    flex-basis: 100%;
+    position: relative;
+}
+
+.left {
+    border-radius: 10px 6.5rem 10px 10px;
+    max-width: 20rem;
+    flex-basis: 50%;
+}
+
+.right__progress {
+    width: 100%;
+    padding: 0.1rem;
+    height: 1rem;
+    background-color: hsl(229, 57%, 11%);
+    border-radius: 10rem;
+}
+
+.right__progress__bar {
+    height: 100%;
+    width: 80%;
+    background: linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    border-radius: inherit;
+    position: relative;
+}
+
+.right__progress__bar::after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: white;
+    right: 0.15rem;
+    top: 0.15rem;
+    bottom: 0.15rem;
+}
+
+.right__progress__size {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-top: 0.5rem;
+    font-weight: 700;
+}
+
+.right > p {
+    color: white;
+    margin-bottom: 1rem;
+    color: hsl(243, 100%, 93%);
+}
+
+.right > p > span {
+    color: white;
+    font-weight: 700;
+}
+
+.modal {
+    position: absolute;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    right: 2rem;
+    top: -2.5rem;
+}
+.modal > p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.modal > p > span {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: hsl(229, 57%, 11%);
+    position: relative;
+    top: -0.2rem;
+}
+
+.modal::after {
+    content: "";
+    right: -1.5rem;
+    bottom: -0.5rem;
+    position: absolute;
+    border: 1.5rem solid transparent;
+    border-bottom-color: white;
+    transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+    body {
+        background-image: url(./images/bg-mobile.png);
+        background-size: cover;
+        background-color: hsl(229, 57%, 11%);
+    }
+    .container {
+        flex-direction: column;
+    }
+    .left,
+    .right {
+        width: 100%;
+        align-self: flex-start;
+    }
+    .left {
+        max-width: 300px;
+    }
+    .modal::after {
+        display: none;
+    }
+    .modal {
+        right: initial;
+        top: initial;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
+}
